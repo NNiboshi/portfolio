@@ -1,0 +1,70 @@
+# ============================================================================
+# GitHub Pages 自動デプロイ ワークフロー
+# ----------------------------------------------------------------------------
+# main ブランチに push するたびに Next.js を静的ビルドして GitHub Pages へ公開します。
+#
+# 【初回セットアップ】
+#   1. GitHub でリポジトリを作成し、このプロジェクトを push
+#   2. リポジトリの Settings > Pages > "Build and deployment" の Source を
+#      "GitHub Actions" に変更
+#   3. main に push すれば自動で公開されます
+#
+# 【リポジトリ名について】
+#   <ユーザー名>.github.io/<リポジトリ名>/ で公開される場合、
+#   下の NEXT_PUBLIC_BASE_PATH に自動でリポジトリ名が入ります（変更不要）。
+#   独自ドメインや <ユーザー名>.github.io リポジトリの場合は basePath が
+#   不要なので、env の行を空にするか削除してください。
+# ============================================================================
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build (static export)
+        # リポジトリ名を basePath として渡す（<user>.github.io リポジトリの場合は空にしてください）
+        run: npm run build
+        env:
+          NEXT_PUBLIC_BASE_PATH: /${{ github.event.repository.name }}
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./out
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
