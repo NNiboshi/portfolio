@@ -13,6 +13,7 @@ export default function Projects() {
   const { lang, t } = useLang();
   const [selectedProject, setSelectedProject] = useState<ProjectItem | null>(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
 
   return (
     <section id="projects" className="relative">
@@ -116,7 +117,7 @@ export default function Projects() {
                   <div className="w-full bg-base-surface/30 border-b border-base-border flex justify-center p-4 md:p-6">
                     <div className="w-full max-w-md aspect-square relative group/carousel rounded-lg overflow-hidden bg-base-surface shadow-sm">
                       <img 
-                        src={selectedProject.imageUrls[currentImageIndex]} 
+                        src={`${basePath}${selectedProject.imageUrls[currentImageIndex]}`} 
                         alt={`${lang === 'ja' ? (selectedProject.titleJa || selectedProject.title) : (selectedProject.titleEn || selectedProject.title)} - image ${currentImageIndex + 1}`}
                         className="w-full h-full object-contain transition-opacity duration-300"
                       />

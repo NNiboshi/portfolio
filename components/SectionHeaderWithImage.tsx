@@ -14,13 +14,15 @@ export default function SectionHeaderWithImage({
   imageUrl,
   imageOpacity = 'opacity-35',
 }: SectionHeaderWithImageProps) {
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
+
   return (
     <div className="relative pt-20 pb-12 md:pt-28 md:pb-16 overflow-hidden">
       {/* 背景画像とオーバーレイ */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         <div
           className={`absolute inset-0 bg-cover bg-center bg-no-repeat ${imageOpacity} scale-105`}
-          style={{ backgroundImage: `url("${imageUrl}")` }}
+          style={{ backgroundImage: `url("${basePath}${imageUrl}")` }}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-base/75 via-transparent to-base" />
       </div>

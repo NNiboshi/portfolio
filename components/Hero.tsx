@@ -9,6 +9,7 @@ export default function Hero() {
   const { lang, t } = useLang();
   const name = lang === 'ja' ? profile.nameJa : profile.nameEn;
   const tagline = lang === 'ja' ? profile.taglineJa : profile.taglineEn;
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
 
   return (
     <section id="home" className="relative min-h-screen flex items-center pt-20 overflow-hidden">
@@ -16,7 +17,7 @@ export default function Hero() {
       <div className="absolute inset-0 z-0 pointer-events-none">
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-35"
-          style={{ backgroundImage: 'url("/back.jpg")' }}
+          style={{ backgroundImage: `url("${basePath}/back.jpg")` }}
         />
         {/* 上部の固定ヘッダー付近を少し暗くし、中央は透過させ画像を明るく、下部はセクションの背景色へと溶け込ませる */}
         <div className="absolute inset-0 bg-gradient-to-b from-base/75 via-transparent to-base" />
