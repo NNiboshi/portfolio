@@ -14,8 +14,8 @@ const FACTS_JA = [
 ];
 
 const FACTS_EN = [
-  { key: 'Role', value: 'M.Eng. Student' },
-  { key: 'Field', value: 'Signal Processing' },
+  { key: 'Role', value: 'M.Eng. Student (Computer Science)' },
+  { key: 'Field', value: 'Signal Processing, Software' },
   { key: 'Interests', value: 'Algorithms, Optimization' },
   { key: 'Base', value: 'Kanto, JP' },
 ];
@@ -27,7 +27,7 @@ const CERTIFICATIONS_JA = [
 
 const CERTIFICATIONS_EN = [
   { date: 'Apr 2022', name: 'Fundamental Information Technology Engineer Examination' },
-  { date: 'Apr 2023', name: 'Applied Information Technology Engineer Examination' },
+  { date: 'Dec 2025', name: 'TOEIC L&R TEST 660' },
 ];
 
 export default function About() {

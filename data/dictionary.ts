@@ -71,9 +71,9 @@ export const dictionary = {
     about: {
       heading: 'About',
       // 3-sentence self introduction (English)
-      body: 'M.Eng. student in Computer and Information Sciences at Tokyo University of Agriculture and Technology. From robotics and machine learning in high school to VR game development, web applications, and audio signal processing in university, I have a broad range of experience in algorithm design and team development. I aim to be an engineer who can leverage technology to drive business impact.',
+      body: 'I am a student in the Department of Intelligent Information Systems Engineering, Graduate School of Engineering, Tokyo University of Agriculture and Technology. \nI mainly work as a software engineer. I have a wide range of experience in algorithm design and team development, from building robots for high school and researching machine learning to developing VR games, web development, and researching signal processing at university. I aim to be an engineer with a wide range of skills who can solve various problems. \nMy hobbies include games, hardcore music, and philosophy. \n\nI am currently a member of the Hayakawa Laboratory, where I am conducting research in the field of signal processing.',
       labText: 'Visit Lab Website',
-      labUrl: '#',
+      labUrl: 'https://web.tuat.ac.jp/~hayakawa-lab/',
       certificationsHeading: 'Certifications',
     },
     projects: {
