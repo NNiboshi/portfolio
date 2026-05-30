@@ -21,8 +21,8 @@ const FACTS_EN = [
 ];
 
 const CERTIFICATIONS_JA = [
-  { date: '2022年4月', name: '基本情報技術者試験 合格' },
-  { date: '2023年4月', name: '応用情報技術者試験 合格' },
+  { date: '2022年5月', name: '基本情報技術者試験' },
+  { date: '2025年12月', name: 'TOEIC L&R TEST 660点' },
 ];
 
 const CERTIFICATIONS_EN = [
