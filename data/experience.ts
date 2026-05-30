@@ -10,20 +10,20 @@ export const experience: ExperienceItem[] = [
     kind: 'school',
   },
   {
-    period: '2022 - 2025',
-    titleJa: '電脳サークル',
-    titleEn: 'Cyber Circle',
-    summaryJa: 'チームでのVRゲーム開発と展示への参加',
-    summaryEn: 'Team-based VR game development and event participation',
-    kind: 'club',
-  },
-  {
     period: '2022 - 2026',
     titleJa: '東京農工大学',
     titleEn: 'Tokyo University of Agriculture and Technology',
     summaryJa: '工学部 知能情報システム工学科',
     summaryEn: 'Bachelor of Engineering, Department of Computer and Information Sciences',
     kind: 'school',
+  },
+  {
+    period: '2022 - 2025',
+    titleJa: '電脳サークル',
+    titleEn: 'Cyber Circle',
+    summaryJa: 'チームでのVRゲーム開発と展示への参加',
+    summaryEn: 'Team-based VR game development and event participation',
+    kind: 'club',
   },
   {
     period: '2026 - 現在',
