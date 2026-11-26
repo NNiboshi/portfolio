@@ -10,7 +10,7 @@ export const publications: PublicationItem[] = [
     authorsEn: 'Masaki Iwanaga, Kazuki Naganuma, Ryo Hayakawa',
     conferenceJa: '第40回信号処理シンポジウム',
     conferenceEn: 'The 40th Symposium on Signal Processing',
-    year: '2025',
+    year: '2025/11',
     link: '/publish/SIPS2025_iwanaga.pdf',
   },
   {
@@ -20,7 +20,7 @@ export const publications: PublicationItem[] = [
     authorsEn: 'Masaki Iwanaga, Ryo Hayakawa',
     conferenceJa: '第41回信号処理シンポジウム',
     conferenceEn: 'The 41th Symposium on Signal Processing',
-    year: '2026',
+    year: '2026/12',
     link: '/publish/SIPS2026_iwanaga.pdf',
   },
 ];
