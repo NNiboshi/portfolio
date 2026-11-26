@@ -11,6 +11,16 @@ export const publications: PublicationItem[] = [
     conferenceJa: '第40回信号処理シンポジウム',
     conferenceEn: 'The 40th Symposium on Signal Processing',
     year: '2025',
-    link: 'https://web.tuat.ac.jp/~hayakawa-lab/author/%E5%B2%A9%E6%B0%B8-%E5%B0%86%E6%A8%B9/SIPS2025_iwanaga.pdf',
+    link: '/publish/SIPS2025_iwanaga.pdf',
+  },
+  {
+    titleJa: '適応的グループ選択を用いた閾値処理に基づく音響信号デクリッピング',
+    titleEn: 'Audio Declipping Based on Threshold Processing Using Adaptive Group Selection',
+    authorsJa: '岩永 将樹, 早川 諒',
+    authorsEn: 'Masaki Iwanaga, Ryo Hayakawa',
+    conferenceJa: '第41回信号処理シンポジウム',
+    conferenceEn: 'The 41th Symposium on Signal Processing',
+    year: '2026',
+    link: '/publish/SIPS2026_iwanaga.pdf',
   },
 ];

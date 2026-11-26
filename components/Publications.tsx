@@ -10,6 +10,7 @@ import { fadeInUp, createTransition } from '@/lib/animations';
 
 export default function Publications() {
   const { lang, t } = useLang();
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
 
   const heading = t.publications.heading;
   const subtitle = t.publications.subtitle;
@@ -36,6 +37,7 @@ export default function Publications() {
             const authors = lang === 'ja' ? item.authorsJa : item.authorsEn;
             const conference = lang === 'ja' ? item.conferenceJa : item.conferenceEn;
             const award = lang === 'ja' ? item.awardJa : item.awardEn;
+            const link = item.link?.startsWith('/') ? `${basePath}${item.link}` : item.link;
 
             return (
               <motion.div
@@ -52,8 +54,8 @@ export default function Publications() {
                     <h3 className="flex items-start gap-2 text-lg md:text-xl font-display font-bold text-ink leading-tight mb-3 group-hover:text-accent transition-colors">
                       <FileTextIcon className="w-5 h-5 mt-0.5 flex-shrink-0" />
                       <span>
-                        {item.link && item.link !== '#' ? (
-                          <a href={item.link} target="_blank" rel="noopener noreferrer" className="hover:underline">
+                        {link && link !== '#' ? (
+                          <a href={link} target="_blank" rel="noopener noreferrer" className="hover:underline">
                             {title}
                           </a>
                         ) : (
@@ -61,20 +63,29 @@ export default function Publications() {
                         )}
                       </span>
                     </h3>
-                    <p className="flex items-center gap-2 text-sm md:text-sm font-display font-bold text-ink leading-tight mb-3 group-hover:text-accent transition-colors">
-                      <UsersIcon className="w-4 h-4 flex-shrink-0" />
-                      <span>{authors}</span>
-                    </p>
+                    {authors && (
+                      <p className="flex items-center gap-2 text-sm md:text-sm font-display font-bold text-ink leading-tight mb-3 group-hover:text-accent transition-colors">
+                        <UsersIcon className="w-4 h-4 flex-shrink-0" />
+                        <span>{authors}</span>
+                      </p>
+                    )}
                     <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs md:text-sm text-ink-muted">
-                      <span className="flex items-center gap-1.5 font-medium text-ink/70">
-                        <PresentationIcon className="w-4 h-4 flex-shrink-0" />
-                        {conference}
-                      </span>
+                      {conference && (
+                        <span className="flex items-center gap-1.5 font-medium text-ink/70">
+                          <PresentationIcon className="w-4 h-4 flex-shrink-0" />
+                          {conference}
+                        </span>
+                      )}
                       <span className="flex items-center gap-1.5 font-mono">
                         <CalendarIcon className="w-4 h-4 flex-shrink-0" />
                         {item.year}
                       </span>
                     </div>
+                    {link && link !== '#' && (
+                      <a href={link} target="_blank" rel="noopener noreferrer" className="inline-flex mt-4 text-xs font-bold tracking-widest uppercase text-ink-muted hover:text-accent transition-colors">
+                        {lang === 'ja' ? 'PDFを見る ↗' : 'View PDF ↗'}
+                      </a>
+                    )}
                   </div>
 
                   {award && (
